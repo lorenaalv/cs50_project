@@ -58,3 +58,41 @@ def login():
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
+
+@app.route("/change_password", methods=["GET", "POST"])
+@login_required
+def change_password():
+    if request.method == "GET":
+        return render_template("change_password.html")
+    else:
+        # Get form data
+        current_password = request.form.get("current_password")
+        new_password = request.form.get("new_password")
+        confirm_password = request.form.get("confirm_password")
+
+        # Fetch the hashed password from the database
+        hashed_password = db.execute(
+            "SELECT hash FROM users WHERE id = :user_id", user_id=session["user_id"]
+        )[0]["hash"]
+
+        # Check if current password is correct
+        if not check_password_hash(hashed_password, current_password):
+            return apology("Your current password is incorrect.")
+
+        # Check if new password and confirmation match
+        if new_password != confirm_password:
+            return apology(
+                "Your new password and your confirmation password are not correct."
+            )
+
+        # Has the new password
+        hashed_new_password = generate_password_hash(new_password)
+
+        # Update the password in database
+        db.execute(
+            "UPDATE users SET hash = :new_hash WHERE id = :user_id",
+            new_hash=hashed_new_password,
+            user_id=session["user_id"],
+        )
+
+        return redirect("/")
