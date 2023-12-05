@@ -32,6 +32,15 @@ db.execute(
                """
 )
 
+@app.after_request
+def after_request(response):
+    """Ensure responses aren't cached"""
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Expires"] = 0
+    response.headers["Pragma"] = "no-cache"
+    return response
+
+@app.route("/login", methods=["GET", "POST"])
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
@@ -69,6 +78,16 @@ def login():
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
+
+@app.route("/logout")
+def logout():
+    """Log user out"""
+
+    # Forget any user_id
+    session.clear()
+
+    # Redirect user to login form
+    return redirect("/")
 
 @app.route("/change_password", methods=["GET", "POST"])
 @login_required
