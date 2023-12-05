@@ -34,6 +34,16 @@ db.execute(
                """
 )
 
+# Creates tables to keep track of users
+db.execute(
+    """
+    CREATE TABLE IF NOT EXISTS users (
+    id INTEGER PRIMARY KEY,
+    username TEXT NOT NULL,
+    hash TEXT NOT NULL)
+    """
+)
+
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
