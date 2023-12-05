@@ -18,6 +18,20 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///purchases.db")
 
+# Creates table to track purchases
+db.execute(
+    """
+        CREATE TABLE IF NOT EXISTS purchases (
+            id INTEGER PRIMARY KEY,
+            user_id INTEGER NOT NULL,
+            item TEXT NOT NULL,
+            location INTEGER NOT NULL,
+            price REAL NOT NULL,
+            timestamp DATETIME DEFAULT
+        CURRENT_TIMESTAMP)
+               """
+)
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
