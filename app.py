@@ -8,7 +8,9 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from helpers import apology, login_required
 
 # Configure application
-app = Flask(__name__)
+# app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
+
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
