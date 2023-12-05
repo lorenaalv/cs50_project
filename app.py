@@ -40,7 +40,7 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/login.html", methods=["GET", "POST"])
 def login():
     """Log user in"""
 
@@ -125,3 +125,33 @@ def change_password():
         )
 
         return redirect("/")
+
+def register():
+    """Register user"""
+    if request.method == "POST":
+        username = request.form.get("username")
+        if not username:
+            return apology("Username is required")
+
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
+        if not password:
+            return apology("Password is required")
+        if password != confirmation:
+            return apology("Passwords do not match")
+        # Check if username is already taken
+        result = db.execute(
+            "SELECT * FROM users WHERE username = :username", username=username
+        )
+        if result:
+            return apology("Username taken.")
+        else:
+            hashed_password = generate_password_hash(password)
+            db.execute(
+                "INSERT INTO users (username, hash) VALUES (?, ?)",
+                username,
+                hashed_password,
+            )
+        return redirect("/")
+    else:
+        return render_template("register.html")
