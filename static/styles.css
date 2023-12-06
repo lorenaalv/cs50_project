@@ -6,6 +6,8 @@ nav .navbar-brand {
 
 body {
     /* ji */
+
+    background-image: url("static/background.png");
 }
 
 #logo {
@@ -24,7 +26,7 @@ p {
 }
 
 button {
-font-family: 'Libre Baskerville', serif;
+    font-family: 'Libre Baskerville', serif;
 }
 
 input {
@@ -36,9 +38,12 @@ input {
 }
 
 .background-image {
-    background-image: url("{{ url_for('static', filename='background.png') }}");
-    background-size: cover; /* Cover the entire container */
-    background-position: center; /* Center the background image */
-    height: 100vh; /* Set the height to the full viewport height */
-    width: 100%; /* Set the width to 100% of the container */
+    background-size: cover;
+    /* Cover the entire container */
+    background-position: center;
+    /* Center the background image */
+    height: 100vh;
+    /* Set the height to the full viewport height */
+    width: 100%;
+    /* Set the width to 100% of the container */
 }
