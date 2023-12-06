@@ -37,7 +37,7 @@ p, button, label, input, td, th {
     /* Set the height to the full viewport height */
     width: 100%;
     /* Set the width to 100% of the container */
-}
+
     .about-page-container {
         max-width: 800px;
         margin: auto;
@@ -56,3 +56,4 @@ p, button, label, input, td, th {
         padding: 15px;
         border-radius: 20px;
     }
+}
