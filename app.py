@@ -44,6 +44,32 @@ db.execute(
     """
 )
 
+@app.route("/log_purchase", methods=["GET", "POST"])
+@login_required
+def log_purchase():
+    if request.method == "POST":
+        user_id = session["user_id"]
+        item = request.form.get("item")
+        location = request.form.get("location")
+        price = request.form.get("price")
+
+        if not item or not location or not price:
+            return apology("All fields are required", 400)
+
+        db.execute("INSERT INTO purchases (user_id, item, location, price) VALUES (?, ?, ?, ?)",
+                   user_id, item, location, price)
+
+        return redirect("/view_purchases")
+    else:
+        return render_template("log_purchase.html")
+
+@app.route("/view_purchases")
+@login_required
+def view_purchases():
+    user_id = session["user_id"]
+    purchases = db.execute("SELECT * FROM purchases WHERE user_id = ?", user_id)
+    return render_template("view_purchases.html", purchases=purchases)
+
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
