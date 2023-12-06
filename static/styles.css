@@ -36,7 +36,7 @@ input {
 }
 
 .background-image {
-    background-image: url("{{ url_for('static', filename='logo.png') }}");
+    background-image: url("{{ url_for('static', filename='background.png') }}");
     background-size: cover; /* Cover the entire container */
     background-position: center; /* Center the background image */
     height: 100vh; /* Set the height to the full viewport height */
