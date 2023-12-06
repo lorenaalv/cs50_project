@@ -36,6 +36,7 @@ input {
 }
 
 .background-image {
+    background-image: url("{{ url_for('static', filename='logo.png') }}");
     background-size: cover;
     /* Cover the entire container */
     background-position: center;
