@@ -30,3 +30,11 @@ p {
 button {
 font-family: 'Libre Baskerville', serif;
 }
+
+input {
+    font-family: 'Libre Baskerville', serif;
+}
+
+.nav-item {
+    font-family: 'Hedvig Letters Serif', serif;
+}
