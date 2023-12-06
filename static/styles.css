@@ -19,32 +19,12 @@ body {
     /* order is top left bottom right */
 }
 
-p {
-    font-family: 'Libre Baskerville', serif;
-}
-
-button {
-    font-family: 'Libre Baskerville', serif;
-}
-
-label {
-    font-family: 'Libre Baskerville', serif;
-}
-
-input {
-    font-family: 'Libre Baskerville', serif;
-}
-
-td {
-    font-family: 'Libre Baskerville', serif;
-}
-
-th {
-    font-family: 'Libre Baskerville', serif;
-}
-
-.nav-item {
+.nav-item, h1, h2 {
     font-family: 'Hedvig Letters Serif', serif;
+}
+
+p, button, label, input, td, th {
+    font-family: 'Libre Baskerville', serif;
 }
 
 .background-image {
@@ -58,3 +38,39 @@ th {
     width: 100%;
     /* Set the width to 100% of the container */
 }
+    .about-page-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .page-title {
+        text-align: center;
+        color: #2a2a2a;
+        margin-bottom: 50px;
+    }
+
+    .about-section, .story-section {
+        background-color: #f3f3f3;
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .about-page-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .page-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .about-section, .story-section {
+        background-color: #f3f3f3;
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 8px;
+    }
