@@ -3,7 +3,6 @@ import os
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
-from flask_wtf.csrf import CSRFProtect
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import apology, login_required
@@ -11,10 +10,6 @@ from helpers import apology, login_required
 # Configure application
 # app = Flask(__name__)
 app = Flask(__name__, template_folder="templates")
-
-
-# Ensure templates are auto-reloaded
-app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
@@ -55,9 +50,6 @@ def after_request(response):
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
     return response
-
-app.config['SECRET_KEY'] = 'a1b2c3d4e5f6g7h8i9j0k_l!m@n#o$p'
-csrf = CSRFProtect(app)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
