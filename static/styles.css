@@ -6,16 +6,12 @@ nav .navbar-brand
 
 body {
 
+    height: 100%;
+    margin: 0;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+
 
     /* Gradient of Background */
-    background: hsla(183, 62%, 45%, 1);
-
-    background: linear-gradient(90deg, hsla(183, 62%, 45%, 1) 0%, hsla(41, 96%, 58%, 1) 100%);
-
-    background: -moz-linear-gradient(90deg, hsla(183, 62%, 45%, 1) 0%, hsla(41, 96%, 58%, 1) 100%);
-
-    background: -webkit-linear-gradient(90deg, hsla(183, 62%, 45%, 1) 0%, hsla(41, 96%, 58%, 1) 100%);
-
-    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#2CB2BA", endColorstr="#FBB92D", GradientType=1 );
+    
 }
