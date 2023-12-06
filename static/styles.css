@@ -1,6 +1,5 @@
 /* Size for brand */
-nav .navbar-brand
-{
+nav .navbar-brand {
     font-size: xx-large;
     font-family: 'Hedvig Letters Serif', serif;
 }
@@ -13,13 +12,21 @@ body {
     background-color: #DDF1BD
 }
 
-#logo{
+#logo {
     max-width: 20%;
     max-height: 20%;
     filter: drop-shadow(0px 0px 3px #000000);
 }
 
-#credits{
+#credits {
     margin: 25px 10px 25px 10px;
     /* order is top left bottom right */
+}
+
+p {
+    font-family: 'Libre Baskerville', serif;
+}
+
+button {
+font-family: 'Libre Baskerville', serif;
 }
