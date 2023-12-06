@@ -12,6 +12,9 @@ from helpers import apology, login_required
 app = Flask(__name__, template_folder="templates")
 
 
+# Ensure templates are auto-reloaded
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+
 # Configure session to use filesystem (instead of signed cookies)
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
@@ -51,6 +54,9 @@ def after_request(response):
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
     return response
+
+app.config['SECRET_KEY'] = 'your_very_secret_key_here'
+csrf = CSRFProtect(app)
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
