@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block main %}
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for purchase in purchases %}
+        <tr>
+            <td>{{ purchase.item }}</td>
+            <td>{{ purchase.location }}</td>
+            <td>{{ purchase.price }}</td>
+            <td>{{ purchase.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
