@@ -5,5 +5,13 @@ nav .navbar-brand
 }
 
 body {
-    background-color: coral;
+    background: hsla(59, 86%, 68%, 1);
+
+    background: linear-gradient(90deg, hsla(59, 86%, 68%, 1) 0%, hsla(134, 36%, 53%, 1) 100%);
+
+    background: -moz-linear-gradient(90deg, hsla(59, 86%, 68%, 1) 0%, hsla(134, 36%, 53%, 1) 100%);
+
+    background: -webkit-linear-gradient(90deg, hsla(59, 86%, 68%, 1) 0%, hsla(134, 36%, 53%, 1) 100%);
+
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F4F269", endColorstr="#5CB270", GradientType=1 );
 }
