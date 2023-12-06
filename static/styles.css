@@ -35,6 +35,14 @@ input {
     font-family: 'Libre Baskerville', serif;
 }
 
+td {
+    font-family: 'Libre Baskerville', serif;
+}
+
+th {
+    font-family: 'Libre Baskerville', serif;
+}
+
 .nav-item {
     font-family: 'Hedvig Letters Serif', serif;
 }
