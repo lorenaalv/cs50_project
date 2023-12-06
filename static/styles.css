@@ -4,8 +4,9 @@ nav .navbar-brand {
     font-family: 'Hedvig Letters Serif', serif;
 }
 
-body {
-    /* ji */
+body, html {
+    margin: 0;
+    padding: 0;
 }
 
 #logo {
@@ -47,7 +48,7 @@ p, button, label, input, td, th {
     .page-title {
         text-align: center;
         color: #2a2a2a;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
 
     .about-section, .story-section, .team-section, .contact-section {
