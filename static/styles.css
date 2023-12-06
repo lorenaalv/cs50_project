@@ -50,9 +50,9 @@ p, button, label, input, td, th {
         margin-bottom: 50px;
     }
 
-    .about-section, .story-section {
+    .about-section, .story-section, .team-section, .contact-section {
         background-color: #f3f3f3;
         margin-bottom: 20px;
         padding: 15px;
-        border-radius: 8px;
+        border-radius: 20px;
     }
