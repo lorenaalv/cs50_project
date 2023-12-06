@@ -9,5 +9,15 @@ body {
     background-size: auto;
 
     /* Gradient of Background */
-    background-color: #9AB973
+    background-color: #DDF1BD
+}
+
+#logo{
+    max-width: 20%;
+    max-height: 20%;
+}
+
+#credits{
+    margin
+    margin-bottom: 20px;
 }
