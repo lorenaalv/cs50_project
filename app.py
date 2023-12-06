@@ -55,7 +55,7 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
-app.config['SECRET_KEY'] = 'your_very_secret_key_here'
+app.config['SECRET_KEY'] = 'a1b2c3d4e5f6g7h8i9j0k_l!m@n#o$p'
 csrf = CSRFProtect(app)
 
 @app.route("/login", methods=["GET", "POST"])
