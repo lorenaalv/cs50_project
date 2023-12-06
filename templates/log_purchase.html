@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+<form action="/log_purchase" method="post">
+    <div>
+        <label for="item">Item:</label>
+        <input type="text" name="item" id="item" required>
+    </div>
+    <div>
+        <label for="location">Location:</label>
+        <input type="text" name="location" id="location" required>
+    </div>
+    <div>
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" step="0.01" required>
+    </div>
+    <button
