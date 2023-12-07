@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<!-- Map Container -->
+<div id="map"></div>
+
+<!-- Purchase Table -->
+<table class="table-center">
+    <!-- Your table structure -->
+</table>
+
+<script>
+    // Initialize and add the map
+    function initMap() {
+        // The map, centered at a default location
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: {lat: -25.344, lng: 131.036} // Change to a relevant default location
+        });
+
+        // Array of locations from Flask
+        var locations = {{ purchases | tojson | safe }};
+
+        // Place a marker for each location
+        locations.forEach(function(purchase) {
+            var marker = new google.maps.Marker({
+                position: {lat: parseFloat(purchase.lat), lng: parseFloat(purchase.lng)}, // Replace with actual lat, lng from purchase
+                map: map,
+                title: purchase.location // or any other title you want to display
+            });
+        });
+    }
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOQ3JP8Wt0TWU4fx0Mitj57ZdQH1ZPaus&callback=initMap">
+</script>
+
+{% endblock %}
