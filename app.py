@@ -56,7 +56,11 @@ def log_purchase():
         if not item or not location or not price:
             return apology("All fields are required", 400)
 
-        if not re.match("^[A-Za-z]+$")
+        if not re.match("^[A-Za-z ]+$", item):
+            return apology("Item must contain only letters", 400)
+
+        if not re.match("^[A-Za-z ]+$", location):
+            return apology("Item must contain only letters", 400)
 
         db.execute("INSERT INTO purchases (user_id, item, location, price) VALUES (?, ?, ?, ?)",
                    user_id, item, location, price)
