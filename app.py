@@ -60,6 +60,8 @@ def log_purchase():
         location = request.form.get("location")
         price = request.form.get("price")
 
+        print(f"Item: {item}, Location: {location}, Price: {price}")
+
         if not item or not location or not price:
             return apology("All fields are required", 400)
 
