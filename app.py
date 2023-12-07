@@ -242,6 +242,18 @@ def register():
     else:
         return render_template("register.html")
 
+@app.route("/delete_purchase/<int:purchase_id>", methods=["GET"])
+@login_required
+def delete_purchase(purchase_id):
+    user_id = session["user_id"]
+    purchase = db.execute("SELECT * FROM purchases WHERE id = ? AND user_id = ?", purchase_id, user_id)
+    if purchase:
+        db.execute("DELETE FROM purchases WHERE id = ?", purchase_id)
+        print("Purchase deleted successfully")
+    else:
+        print("Purchase not found or does not belong to the user")
+    return redirect(url_for('view_purchase'))
+
 @app.route("/")
 @login_required
 def index():
