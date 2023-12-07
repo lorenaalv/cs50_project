@@ -26,7 +26,7 @@
         locations.forEach(function(purchase) {
             if (purchase.latitude && purchase.longitude) {
                 var marker = new google.maps.Marker({
-                position: new google.maps.LatLng {lat: parseFloat(purchase.lat), lng: parseFloat(purchase.lng)}, // Replace with actual lat, lng from purchase
+                position: new google.maps.LatLng(parseFloat(purchase.latitude), parseFloat(purchase.longitude)), // Replace with actual lat, lng from purchase
                 map: map,
                 title: purchase.location // or any other title you want to display
             });
