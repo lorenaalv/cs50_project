@@ -28,7 +28,7 @@
                 var marker = new google.maps.Marker({
                 position: new google.maps.LatLng(parseFloat(purchase.latitude), parseFloat(purchase.longitude)), // Replace with actual lat, lng from purchase
                 map: map,
-                title: purchase.location // or any other title you want to display
+                title: purchase.item + ' - ' + purchase.location // or any other title you want to display
             });
 
             }
