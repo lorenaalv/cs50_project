@@ -121,7 +121,7 @@ td {
 /* padding */
 /* } */
 
-.table-c {
+.table-center {
     margin-left: auto;
     margin-right: auto;
     background-color: #B9D9EB;
@@ -130,7 +130,7 @@ td {
     border-color: #7BAFD4;
 }
 
-.table-center {
+.table-c {
     margin-left: auto;
     margin-right: auto;
 }
