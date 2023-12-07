@@ -100,12 +100,6 @@ th {
     }
 }
 
-@media (max-width: 768px) {
-    .carousel-inner img {
-        height: auto;
-    }
-}
-
 .carousel-item {
     margin-top: 20px;
     margin-bottom: 50px;
