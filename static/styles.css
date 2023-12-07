@@ -80,15 +80,8 @@ html, body {
     object-fit: cover; /* Maintain the aspect ratio and cover the container */
 }
 
-@media (max-width: 768px) {
-    .carousel-inner img {
-        height: auto
-    }
-}
-
 .carousel-item {
     margin-top: 20px;
     margin-bottom: 50px;
     border-radius: 20px;
-    padding: 15px;
 }
