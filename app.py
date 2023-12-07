@@ -85,7 +85,7 @@ def log_purchase():
         response = requests.get(geocoding_url, params=params)
         geocoding_data = response.json()
 
-        if geocoding_data["status"] == "OK":
+        if geocoding_data["status"] == "OK" and geocoding_data["results"]:
             lat = geocoding_data["results"][0]["geometry"]["location"]["lat"]
             lng = geocoding_data["results"][0]["geometry"]["location"]["lng"]
             print(f"Geocoded Lat: {lat}, Lng: {lng}")
