@@ -34,7 +34,7 @@ p, button, label, input, td, th {
     /* Cover the entire container */
     background-position: center;
     /* Center the background image */
-    height: 200%;
+    height: 210%;
     /* Set the height to the full viewport height */
     width: 100%;
     /* Set the width to 100% of the container */
@@ -69,17 +69,18 @@ html, body {
 
 /* Custom CSS for the carousel */
 #carouselExampleControls {
-    max-width: 600px; /* Set the maximum width of the carousel */
+    max-width: 400px; /* Set the maximum width of the carousel */
     margin: auto; /* Center the carousel */
 }
 
 .carousel-inner img {
     width: 100%; /* Make the images inside the carousel take up 100% width */
-    height: 300px; /* Set the height of the images */
+    height: 330px; /* Set the height of the images */
     object-fit: cover; /* Maintain the aspect ratio and cover the container */
 }
 
 .carousel-item {
+    margin-top: 20px;
     margin-bottom: 50px;
     border-radius: 20px;
 }
