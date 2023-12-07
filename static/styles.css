@@ -35,7 +35,7 @@ p, button, label, input, td, th {
     /* Cover the entire container */
     background-position: center;
     /* Center the background image */
-    height: 210%;
+    height: 100vh;
     /* Set the height to the full viewport height */
     width: 100%;
     /* Set the width to 100% of the container */
@@ -61,11 +61,6 @@ p, button, label, input, td, th {
 }
 .container-fluid.py-5.text-center {
     min-height: 100vh; /* or use height: 100vh; depending on your design */
-}
-
-/* Add this if necessary */
-html, body {
-    height: 100%;
 }
 
 /* Custom CSS for the carousel */
