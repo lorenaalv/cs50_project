@@ -5,6 +5,7 @@ nav .navbar-brand {
 }
 
 body, html {
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -34,7 +35,7 @@ p, button, label, input, td, th {
     /* Cover the entire container */
     background-position: center;
     /* Center the background image */
-    height: 210%;
+    height: 100vh;
     /* Set the height to the full viewport height */
     width: 100%;
     /* Set the width to 100% of the container */
