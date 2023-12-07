@@ -56,6 +56,8 @@ def log_purchase():
 
         print(f"Item: {item}, Location: {location}, Price: {price}")
 
+        print(f"Geocoding response: {geocoding_data}")
+
         if not item or not location or not price:
             return apology("All fields are required", 400)
 
