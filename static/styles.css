@@ -58,3 +58,12 @@ p, button, label, input, td, th {
         border-radius: 20px;
     }
 }
+
+.container-fluid.py-5.text-center {
+    padding-top: 19000px;
+    padding-bottom: 2rem;
+}
+
+.container-fluid.py-5.text-center {
+    min-height: 100vh; /* or use height: 100vh; depending on your design */
+}
