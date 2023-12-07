@@ -15,12 +15,12 @@ body {
 nav .navbar-brand {
     font-size: xx-large;
     font-family: 'Hedvig Letters Serif', serif;
+}
 
 #logo {
     max-width: 20%;
     max-height: 20%;
     filter: drop-shadow(0px 0px 3px #000000);
-}
 }
 
 #credits {
@@ -35,6 +35,14 @@ nav .navbar-brand {
 p, button, label, input, td, th {
     font-family: 'Libre Baskerville', serif;
 }
+
+.about-age-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+
 
 .background-image {
     background-image: url('/static/background.png');
