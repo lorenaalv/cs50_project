@@ -85,7 +85,7 @@ def log_purchase():
         else:
             return apology("Geocoding failed or invalid location")
 
-        db.execute("INSERT INTO purchases (user_id, item, location, price) VALUES (?, ?, ?, ?)",
+        db.execute("INSERT INTO purchases (user_id, item, location, price, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)",
                    user_id, item, location, price, lat, lng)
 
         return redirect("/view_purchases")
