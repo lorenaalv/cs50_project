@@ -34,7 +34,7 @@ p, button, label, input, td, th {
     /* Cover the entire container */
     background-position: center;
     /* Center the background image */
-    height: 165vh;
+    height: 200%;
     /* Set the height to the full viewport height */
     width: 100%;
     /* Set the width to 100% of the container */
