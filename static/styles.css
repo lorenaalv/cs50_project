@@ -36,14 +36,6 @@ p, button, label, input, td, th {
     font-family: 'Libre Baskerville', serif;
 }
 
-.about-age-container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-}
-
-
-
 .background-image {
     background-image: url('/static/background.png');
     background-size: cover;
