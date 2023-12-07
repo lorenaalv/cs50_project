@@ -76,7 +76,11 @@ def log_purchase():
             "address": location,
             "key": GOOGLE_MAPS_API_KEY
         }
-        
+        response = requests.get(geocoding_url, params=params)
+        geocoding_data = response.json()
+
+        if geocoding_data["status"] == "OK":
+            lat = geocoding_data["results"][0]["geometry"]
 
         db.execute("INSERT INTO purchases (user_id, item, location, price) VALUES (?, ?, ?, ?)",
                    user_id, item, location, price)
