@@ -3,7 +3,7 @@ import re
 import requests
 
 from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request, url_for, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -252,7 +252,7 @@ def delete_purchase(purchase_id):
         print("Purchase deleted successfully")
     else:
         print("Purchase not found or does not belong to the user")
-    return redirect(url_for('view_purchase'))
+    return redirect(url_for('view_purchases'))
 
 @app.route("/")
 @login_required
