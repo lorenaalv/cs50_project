@@ -5,19 +5,19 @@
     <div class="purchases-table">
     <thead>
         <tr>
-            <th>Item</th>
-            <th>Location</th>
-            <th>Price</th>
-            <th>Timestamp</th>
+            <th class="table-th">Item</th>
+            <th class="table-th">Location</th>
+            <th class="table-th">Price</th>
+            <th class="table-th">Timestamp</th>
         </tr>
     </thead>
     <tbody>
         {% for purchase in purchases %}
         <tr>
-            <td>{{ purchase.item }}</td>
-            <td>{{ purchase.location }}</td>
-            <td>{{ purchase.price }}</td>
-            <td>{{ purchase.timestamp }}</td>
+            <td class="table-td">{{ purchase.item }}</td>
+            <td class="table-td">{{ purchase.location }}</td>
+            <td class="table-td">{{ purchase.price }}</td>
+            <td class="table-td">{{ purchase.timestamp }}</td>
         </tr>
         {% endfor %}
     </tbody>
