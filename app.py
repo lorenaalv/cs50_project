@@ -54,10 +54,6 @@ def log_purchase():
         location = request.form.get("location")
         price = request.form.get("price")
 
-        print(f"Item: {item}, Location: {location}, Price: {price}")
-
-        print(f"Geocoding response: {geocoding_data}")
-
         if not item or not location or not price:
             return apology("All fields are required", 400)
 
@@ -90,7 +86,7 @@ def log_purchase():
             return apology("Geocoding failed or invalid location")
 
         db.execute("INSERT INTO purchases (user_id, item, location, price) VALUES (?, ?, ?, ?)",
-                   user_id, item, location, price)
+                   user_id, item, location, price, lat, lng)
 
         return redirect("/view_purchases")
     else:
