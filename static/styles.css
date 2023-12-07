@@ -65,7 +65,9 @@ p, button, label, input, td, th {
 
 /* Add this if necessary */
 html, body {
-    height: 100%;
+    height: 100%
+    margin: 0;
+    padding: 0;
 }
 
 /* Custom CSS for the carousel */
