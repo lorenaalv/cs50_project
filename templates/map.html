@@ -17,6 +17,7 @@
         });
 
         var locations = {{ purchases | tojson | safe }};
+        console.log(locations);
 
         locations.forEach(function(purchase) {
             if (purchase.latitude && purchase.longitude) {
