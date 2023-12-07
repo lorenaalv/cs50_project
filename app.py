@@ -1,4 +1,5 @@
 import os
+import re
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -54,6 +55,8 @@ def log_purchase():
 
         if not item or not location or not price:
             return apology("All fields are required", 400)
+
+        if not re.match("^[A-Za-z]+$")
 
         db.execute("INSERT INTO purchases (user_id, item, location, price) VALUES (?, ?, ?, ?)",
                    user_id, item, location, price)
