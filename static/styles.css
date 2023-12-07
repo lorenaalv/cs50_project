@@ -36,19 +36,6 @@ p, button, label, input, td, th {
     font-family: 'Libre Baskerville', serif;
 }
 
-.background-image {
-    background-image: url('/static/background.png');
-    background-size: cover;
-    /* Cover the entire container */
-    background-position: center;
-    /* Center the background image */
-    background-attachment: fixed;
-    height: 100vh;
-    /* Set the height to the full viewport height */
-    width: 100%;
-    /* Set the width to 100% of the container */
-}
-
     .about-page-container {
         max-width: 800px;
         margin: auto;
