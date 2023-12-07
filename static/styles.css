@@ -84,3 +84,7 @@ html, body {
     margin-bottom: 50px;
     border-radius: 20px;
 }
+
+th, td {
+    margin-right: 10px;
+}
