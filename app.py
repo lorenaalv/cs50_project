@@ -54,13 +54,18 @@ def log_purchase():
         location = request.form.get("location")
         price = request.form.get("price")
 
+        print(f"Form Data - Item: {item}, Location: {location}, Price: {price}")
+
         if not item or not location or not price:
+            print("Validation Error: Missing field(s)")
             return apology("All fields are required", 400)
 
         if not re.match("^[A-Za-z ]+$", item):
+            print("Validation Error: Item format")
             return apology("Item must contain only letters", 400)
 
         if not re.match("^[A-Za-z ]+$", location):
+            print("Validation Error: Location format")
             return apology("Location must contain only letters", 400)
 
         try:
@@ -68,6 +73,7 @@ def log_purchase():
             if price < 0:
                 raise ValueError
         except ValueError:
+            print("Validation Error: Price format")
             return apology("Price must be a positive number", 400)
 
         GOOGLE_MAPS_API_KEY = "AIzaSyCOQ3JP8Wt0TWU4fx0Mitj57ZdQH1ZPaus"
@@ -82,12 +88,15 @@ def log_purchase():
         if geocoding_data["status"] == "OK":
             lat = geocoding_data["results"][0]["geometry"]["location"]["lat"]
             lng = geocoding_data["results"][0]["geometry"]["location"]["lng"]
+            print(f"Geocoded Lat: {lat}, Lng: {lng}")
         else:
+            print("Geocoding failed")
             return apology("Geocoding failed or invalid location")
 
         db.execute("INSERT INTO purchases (user_id, item, location, price, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)",
                    user_id, item, location, price, lat, lng)
 
+        print("Purchase logged successfully")
         return redirect("/view_purchases")
     else:
         return render_template("log_purchase.html")
