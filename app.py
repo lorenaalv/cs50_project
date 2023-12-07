@@ -83,6 +83,12 @@ def view_purchases():
     purchases = db.execute("SELECT * FROM purchases WHERE user_id = ?", user_id)
     return render_template("view_purchases.html", purchases=purchases)
 
+@app.route("/map")
+@login_required
+def map():
+    # Your code to gather data for the map and render the map template
+    return render_template("map.html")
+
 @app.after_request
 def after_request(response):
     """Ensure responses aren't cached"""
