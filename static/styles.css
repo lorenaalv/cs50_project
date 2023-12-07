@@ -97,5 +97,6 @@ td {
 .table-center {
     margin-left: auto;
     margin-right: auto;
-    background-color: blue;
+    background-color: #B9D9EB;
+    border: #7BAFD4;
 }
