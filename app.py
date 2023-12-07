@@ -88,6 +88,7 @@ def log_purchase():
         if geocoding_data["status"] == "OK" and geocoding_data["results"]:
             lat = geocoding_data["results"][0]["geometry"]["location"]["lat"]
             lng = geocoding_data["results"][0]["geometry"]["location"]["lng"]
+            print(f"Geocoding response: {geocoding_data}")
             print(f"Geocoded Lat: {lat}, Lng: {lng}")
         else:
             print("Geocoding failed")
