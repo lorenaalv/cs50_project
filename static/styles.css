@@ -4,7 +4,8 @@ nav .navbar-brand {
     font-family: 'Hedvig Letters Serif', serif;
 }
 
-body, html {
+body,
+html {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -21,58 +22,70 @@ body, html {
     /* order is top left bottom right */
 }
 
-.nav-item, h1, h2 {
+.nav-item,
+h1,
+h2 {
     font-family: 'Hedvig Letters Serif', serif;
 }
 
-p, button, label, input, td, th {
+p,
+button,
+label,
+input,
+td,
+th {
     font-family: 'Libre Baskerville', serif;
 }
 
 .background-image {
     background-image: url('/static/background.png');
     background-size: cover;
-    /* Cover the entire container */
     background-position: center;
-    /* Center the background image */
-    height: 100vh;
-    /* Set the height to the full viewport height */
-    width: 100%;
-    /* Set the width to 100% of the container */
-
-    .about-page-container {
-        max-width: 800px;
-        margin: auto;
-        padding: 20px;
-    }
-
-    .page-title {
-        text-align: center;
-        color: #2a2a2a;
-        margin-bottom: 20px;
-    }
-
-    .about-section, .story-section, .team-section, .contact-section {
-        background-color: #f3f3f3;
-        margin-bottom: 20px;
-        padding: 15px;
-        border-radius: 20px;
-    }
+    background-attachment: fixed;
 }
+
+.about-page-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.page-title {
+    text-align: center;
+    color: #2a2a2a;
+    margin-bottom: 20px;
+}
+
+.about-section,
+.story-section,
+.team-section,
+.contact-section {
+    background-color: #f3f3f3;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 20px;
+}
+
 .container-fluid.py-5.text-center {
-    min-height: 100vh; /* or use height: 100vh; depending on your design */
+    min-height: 100vh;
+    /* or use height: 100vh; depending on your design */
 }
 
 /* Custom CSS for the carousel */
 #carouselExampleControls {
-    max-width: 400px; /* Set the maximum width of the carousel */
-    margin: auto; /* Center the carousel */
+    max-width: 400px;
+    /* Set the maximum width of the carousel */
+    margin: auto;
+    /* Center the carousel */
 }
 
 .carousel-inner img {
-    width: 100%; /* Make the images inside the carousel take up 100% width */
-    height: 330px; /* Set the height of the images */
-    object-fit: cover; /* Maintain the aspect ratio and cover the container */
+    width: 100%;
+    /* Make the images inside the carousel take up 100% width */
+    height: 330px;
+    /* Set the height of the images */
+    object-fit: cover;
+    /* Maintain the aspect ratio and cover the container */
 }
 
 @media (max-width: 768px) {
@@ -87,7 +100,8 @@ p, button, label, input, td, th {
     border-radius: 20px;
 }
 
-th, td {
+th,
+td {
     padding-right: 20px;
     padding-left: 20px;
 }
@@ -98,7 +112,7 @@ td {
 }
 
 /* .purchases-table { */
-    /* padding */
+/* padding */
 /* } */
 
 .table-center {
