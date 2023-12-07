@@ -100,12 +100,6 @@ th {
     }
 }
 
-@media (max-width: 768px) {
-    .carousel-inner img {
-        height: auto;
-    }
-}
-
 .carousel-item {
     margin-top: 20px;
     margin-bottom: 50px;
@@ -134,4 +128,14 @@ td {
     border-style: solid;
     border-width: 5px;
     border-color: #7BAFD4;
+}
+
+#map {
+    height: 400px; /* or any other height */
+    width: 100%; /* or a specific width */
+}
+
+.table-c {
+    margin-left: auto;
+    margin-right: auto;
 }

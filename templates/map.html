@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block main %}
+
+<!-- Map Container -->
+<div id="map" style="height: 400px; width: 100%;"></div> <!-- Added inline style for visibility -->
+
+<!-- Purchase Table -->
+<table class="table-center">
+    <!-- Your table structure -->
+</table>
+
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: {lat: 37.0902, lng: -95.7129} // Default center of the US
+        });
+
+        var locations = {{ purchases | tojson | safe }};
+
+        locations.forEach(function(purchase) {
+            if (purchase.latitude && purchase.longitude) {
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(parseFloat(purchase.latitude), parseFloat(purchase.longitude)),
+                    map: map,
+                    title: purchase.item + ' - ' + purchase.location
+                });
+            }
+        });
+    }
+</script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw6k0C6dfwFNSTgGlvYIcygXe3sDyHCa4&callback=initMap">
+</script>
+
+{% endblock %}

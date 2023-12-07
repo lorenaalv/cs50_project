@@ -1,5 +1,6 @@
 import os
 import re
+import requests
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -53,13 +54,18 @@ def log_purchase():
         location = request.form.get("location")
         price = request.form.get("price")
 
+        print(f"Form Data - Item: {item}, Location: {location}, Price: {price}")
+
         if not item or not location or not price:
+            print("Validation Error: Missing field(s)")
             return apology("All fields are required", 400)
 
         if not re.match("^[A-Za-z ]+$", item):
+            print("Validation Error: Item format")
             return apology("Item must contain only letters", 400)
 
         if not re.match("^[A-Za-z ]+$", location):
+            print("Validation Error: Location format")
             return apology("Location must contain only letters", 400)
 
         try:
@@ -67,11 +73,31 @@ def log_purchase():
             if price < 0:
                 raise ValueError
         except ValueError:
+            print("Validation Error: Price format")
             return apology("Price must be a positive number", 400)
 
-        db.execute("INSERT INTO purchases (user_id, item, location, price) VALUES (?, ?, ?, ?)",
-                   user_id, item, location, price)
+        GOOGLE_MAPS_API_KEY = "AIzaSyAw6k0C6dfwFNSTgGlvYIcygXe3sDyHCa4"
+        geocoding_url = f"https://maps.googleapis.com/maps/api/geocode/json"
+        params = {
+            "address": location,
+            "key": GOOGLE_MAPS_API_KEY
+        }
+        response = requests.get(geocoding_url, params=params)
+        geocoding_data = response.json()
+        print(f"Complete Geocoding response: {geocoding_data}")
 
+        if geocoding_data["status"] == "OK" and geocoding_data["results"]:
+            lat = geocoding_data["results"][0]["geometry"]["location"]["lat"]
+            lng = geocoding_data["results"][0]["geometry"]["location"]["lng"]
+            print(f"Geocoded Lat: {lat}, Lng: {lng}")
+        else:
+            print("Geocoding failed")
+            return apology("Geocoding failed or invalid location")
+
+        db.execute("INSERT INTO purchases (user_id, item, location, price, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)",
+                   user_id, item, location, price, lat, lng)
+
+        print("Purchase logged successfully")
         return redirect("/view_purchases")
     else:
         return render_template("log_purchase.html")
@@ -82,6 +108,14 @@ def view_purchases():
     user_id = session["user_id"]
     purchases = db.execute("SELECT * FROM purchases WHERE user_id = ?", user_id)
     return render_template("view_purchases.html", purchases=purchases)
+
+@app.route("/map")
+@login_required
+def map():
+    user_id = session["user_id"]
+    purchases = db.execute("Select * FROM purchases WHERE user_id = ?", user_id)
+    # Your code to gather data for the map and render the map template
+    return render_template("map.html", purchases=purchases)
 
 @app.after_request
 def after_request(response):
