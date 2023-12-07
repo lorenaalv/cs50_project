@@ -86,6 +86,8 @@ def view_purchases():
 @app.route("/map")
 @login_required
 def map():
+    user_id = session["user_id"]
+    purchases = db.execute("Select * FROM purchases WHERE user_id = ?", user_id)
     # Your code to gather data for the map and render the map template
     return render_template("map.html")
 
