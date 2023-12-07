@@ -130,6 +130,11 @@ td {
     border-color: #7BAFD4;
 }
 
+#map {
+    height: 400px; /* or any other height */
+    width: 100%; /* or a specific width */
+}
+
 .table-c {
     margin-left: auto;
     margin-right: auto;
