@@ -17,17 +17,21 @@
             zoom: 4,
             center: {lat: -25.344, lng: 131.036} // Change to a relevant default location
         });
+        var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
         // Array of locations from Flask
         var locations = {{ purchases | tojson | safe }};
 
         // Place a marker for each location
         locations.forEach(function(purchase) {
-            var marker = new google.maps.Marker({
-                position: {lat: parseFloat(purchase.lat), lng: parseFloat(purchase.lng)}, // Replace with actual lat, lng from purchase
+            if (purchase.latitude && purchase.longitude) {
+                var marker = new google.maps.Marker({
+                position: new google.maps.LatLng {lat: parseFloat(purchase.lat), lng: parseFloat(purchase.lng)}, // Replace with actual lat, lng from purchase
                 map: map,
                 title: purchase.location // or any other title you want to display
             });
+
+            }
         });
     }
 </script>
