@@ -76,7 +76,7 @@ def log_purchase():
             print("Validation Error: Price format")
             return apology("Price must be a positive number", 400)
 
-        GOOGLE_MAPS_API_KEY = "AIzaSyCOQ3JP8Wt0TWU4fx0Mitj57ZdQH1ZPaus"
+        GOOGLE_MAPS_API_KEY = "AIzaSyAw6k0C6dfwFNSTgGlvYIcygXe3sDyHCa4"
         geocoding_url = f"https://maps.googleapis.com/maps/api/geocode/json"
         params = {
             "address": location,
