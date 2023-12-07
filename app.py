@@ -70,7 +70,13 @@ def log_purchase():
         except ValueError:
             return apology("Price must be a positive number", 400)
 
-        GOOGLE_MAPS_API_KEY = "
+        GOOGLE_MAPS_API_KEY = "AIzaSyCOQ3JP8Wt0TWU4fx0Mitj57ZdQH1ZPaus"
+        geocoding_url = f"https://maps.googleapis.com/maps/api/geocode/json"
+        params = {
+            "address": location,
+            "key": GOOGLE_MAPS_API_KEY
+        }
+        
 
         db.execute("INSERT INTO purchases (user_id, item, location, price) VALUES (?, ?, ?, ?)",
                    user_id, item, location, price)
