@@ -60,7 +60,14 @@ def log_purchase():
             return apology("Item must contain only letters", 400)
 
         if not re.match("^[A-Za-z ]+$", location):
-            return apology("Item must contain only letters", 400)
+            return apology("Location must contain only letters", 400)
+
+        try:
+            price = float(price)
+            if price < 0:
+                raise ValueError
+        except ValueError:
+            return apology("Price must be a positive number", 400)
 
         db.execute("INSERT INTO purchases (user_id, item, location, price) VALUES (?, ?, ?, ?)",
                    user_id, item, location, price)
