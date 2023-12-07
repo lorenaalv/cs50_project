@@ -101,8 +101,4 @@ html, body {
     margin-top: 20px;
     margin-bottom: 50px;
     border-radius: 20px;
-
-    .container-fluid.py-5.text-center{
-        min-height: 100%;
-    }
 }
