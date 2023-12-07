@@ -86,5 +86,14 @@ html, body {
 }
 
 th, td {
-    margin-right: 10px;
+    padding-right: 20px;
+}
+
+
+td {
+    text-align: left;
+}
+
+table {
+    
 }
