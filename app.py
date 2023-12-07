@@ -45,12 +45,6 @@ db.execute(
     """
 )
 
-try:
-    db.execute("ALTER TABLE purchases ADD COLUMN latitude REAL")
-    db.execute("ALTER TABLE purchases ADD COLUMN longitude REAL")
-except Exception as e:
-    print(f"An error occured: {e}")
-
 @app.route("/log_purchase", methods=["GET", "POST"])
 @login_required
 def log_purchase():
