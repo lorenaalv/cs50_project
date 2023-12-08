@@ -249,12 +249,17 @@ def register():
 @app.route("/delete_purchase/<int:purchase_id>", methods=["GET"])
 @login_required
 def delete_purchase(purchase_id):
+    # Gets the user ID from current session
     user_id = session["user_id"]
+    # Query database to check if purchase matching the ID belongs to logged in user
     purchase = db.execute("SELECT * FROM purchases WHERE id = ? AND user_id = ?", purchase_id, user_id)
+#    Check if purchase exists and belongs to the user
     if purchase:
+        # Purchase exists and belongs to user then delete from database
         db.execute("DELETE FROM purchases WHERE id = ?", purchase_id)
         print("Purchase deleted successfully")
     else:
+        # Purchase doesn't exist or doesn't belong to user then send apology message
         print("Purchase not found or does not belong to the user")
     return redirect(url_for('view_purchases'))
 
