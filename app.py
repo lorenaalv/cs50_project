@@ -48,6 +48,7 @@ db.execute(
 @app.route("/log_purchase", methods=["GET", "POST"])
 @login_required
 def log_purchase():
+    # Handles logging a purchase
     if request.method == "POST":
         user_id = session["user_id"]
         item = request.form.get("item")
@@ -55,7 +56,7 @@ def log_purchase():
         price = request.form.get("price")
 
         print(f"Form Data - Item: {item}, Location: {location}, Price: {price}")
-
+# Validate form data
         if not item or not location or not price:
             print("Validation Error: Missing field(s)")
             return apology("All fields are required", 400)
@@ -76,6 +77,7 @@ def log_purchase():
             print("Validation Error: Price format")
             return apology("Price must be a positive number", 400)
 
+# Use Google Maps API for geocoding and getting lat lng coordinates for the map
         GOOGLE_MAPS_API_KEY = "AIzaSyAw6k0C6dfwFNSTgGlvYIcygXe3sDyHCa4"
         geocoding_url = f"https://maps.googleapis.com/maps/api/geocode/json"
         params = {
@@ -86,6 +88,7 @@ def log_purchase():
         geocoding_data = response.json()
         print(f"Complete Geocoding response: {geocoding_data}")
 
+# Check whether geocoding was successful
         if geocoding_data["status"] == "OK" and geocoding_data["results"]:
             lat = geocoding_data["results"][0]["geometry"]["location"]["lat"]
             lng = geocoding_data["results"][0]["geometry"]["location"]["lng"]
@@ -94,6 +97,7 @@ def log_purchase():
             print("Geocoding failed")
             return apology("Geocoding failed or invalid location")
 
+# Insert purchases into database
         db.execute("INSERT INTO purchases (user_id, item, location, price, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?)",
                    user_id, item, location, price, lat, lng)
 
@@ -257,4 +261,4 @@ def delete_purchase(purchase_id):
 @app.route("/")
 @login_required
 def index():
-    return render_template("index.html")  # replace with the actual template you want to render
+    return render_template("index.html")
