@@ -6,19 +6,23 @@
 
 <!-- Purchase Table -->
 <table class="table-center">
-    <!-- Your table structure -->
 </table>
 
+<!-- Google Maps API Integration -->
 <script>
+    // Initializes the Google Map that is generated
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 4,
-            center: {lat: 37.0902, lng: -95.7129} // Default center of the US
+            center: {lat: 37.0902, lng: -95.7129}
+            // Default center of the US when opened
         });
 
+        // Accquires purchase locations
         var locations = {{ purchases | tojson | safe }};
         console.log(locations);
 
+        // Use lat and lng coordinates to place markers on the map for each purchase
         locations.forEach(function(purchase) {
             if (purchase.latitude && purchase.longitude) {
                 var marker = new google.maps.Marker({
@@ -30,7 +34,7 @@
         });
     }
 </script>
-
+<!-- Includes Google Maps API -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAw6k0C6dfwFNSTgGlvYIcygXe3sDyHCa4&callback=initMap">
 </script>
 

@@ -1,5 +1,6 @@
 {% extends "layout.html" %}
 {% block main %}
+<!-- Form for users to log purchases -->
 <img src="{{ url_for('static', filename='logging.png') }}" alt="Buying on the Road Logo" id="logo">
 <form action="/log_purchase" method="post">
     <div class="item">

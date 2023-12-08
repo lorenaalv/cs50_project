@@ -6,5 +6,6 @@
 
 {% block main %}
     <!-- https://memegen.link/ -->
+    <!-- Generates a meme for every error handled by programmer -->
     <img alt="{{ top }}" class="border img-fluid" src="https://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png&width=400" title="{{ top }}">
 {% endblock %}
