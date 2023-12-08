@@ -1,29 +1,34 @@
 {% extends "layout.html" %}
 {% block main %}
 
-<table class="table-center">
-    <div class="purchases-table">
-    <thead>
-        <tr>
-            <th class="table-th">Item</th>
-            <th class="table-th">Location</th>
-            <th class="table-th">Price</th>
-            <th class="table-th">Timestamp</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for purchase in purchases %}
-        <tr>
-            <td class="table-td">{{ purchase.item }}</td>
-            <td class="table-td">{{ purchase.location }}</td>
-            <td class="table-td">{{ purchase.price }}</td>
-            <td class="table-td">{{ purchase.timestamp }}</td>
-            <td class="table-td">
-                <a href="{{ url_for('delete_purchase', purchase_id=purchase.id) }}">Delete</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
+    <h2>View Purchases</h2>
+    <table class="table-center">
+        <thead>
+            <tr>
+                <th class="table-th">Item</th>
+                <th class="table-th">Location</th>
+                <th class="table-th">Price</th>
+                <th class="table-th">Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for purchase in purchases %}
+                <tr>
+                    <td class="table-td">{{ purchase.item }}</td>
+                    <td class="table-td">{{ purchase.location }}</td>
+                    <td class="table-td">{{ purchase.price }}</td>
+                    <td class="table-td">{{ purchase.timestamp }}</td>
+                    <td class="table-td">
+                        <a href="{{ url_for('delete_purchase', purchase_id=purchase.id) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<div class="directions-container">
+    <img src="/static/pin.png" id="pin">
+    <p class="directions">Now head over to the <a href="/map">map</a> page to view the location of your purchases!</p>
 </div>
-</table>
+
 {% endblock %}

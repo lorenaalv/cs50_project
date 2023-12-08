@@ -1,15 +1,16 @@
 {% extends "layout.html" %}
 {% block main %}
+<img src="{{ url_for('static', filename='logging.png') }}" alt="Buying on the Road Logo" id="logo">
 <form action="/log_purchase" method="post">
-    <div>
+    <div class="item">
         <label for="item">Item:</label>
         <input type="text" name="item" id="item" required>
     </div>
-    <div>
+    <div class="location">
         <label for="location">Location:</label>
         <input type="text" name="location" id="location" required>
     </div>
-    <div>
+    <div class="price">
         <label for="price">Price:</label>
         <input type="number" name="price" id="price" step="0.01" required>
     </div>
