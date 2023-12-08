@@ -124,8 +124,8 @@ td {
 }
 
 #map {
-    height: 400px; /* or any other height */
-    width: 100%; /* or a specific width */
+    height: 400px;
+    width: 100%;
 }
 
 .table-c {
