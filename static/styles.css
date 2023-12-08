@@ -11,7 +11,7 @@ body {
     background-attachment: fixed;
 }
 
-/* Size for brand */
+/* Size for brand name */
 nav .navbar-brand {
     font-size: xx-large;
     font-family: 'Hedvig Letters Serif', serif;
@@ -74,24 +74,23 @@ th {
 
 .container-fluid.py-5.text-center {
     min-height: 100vh;
-    /* or use height: 100vh; depending on your design */
 }
 
-/* Custom CSS for the carousel */
+/* Carousel CSS */
 #carouselExampleControls {
     max-width: 400px;
-    /* Set the maximum width of the carousel */
+    /* Maximum width of the carousel */
     margin: auto;
     /* Center the carousel */
 }
 
 .carousel-inner img {
     width: 100%;
-    /* Make the images inside the carousel take up 100% width */
+    /* Carousel images take up 100% width */
     height: 330px;
-    /* Set the height of the images */
+    /* Height of the carousel images */
     object-fit: cover;
-    /* Maintain the aspect ratio and cover the container */
+    /* Cover the container */
 }
 
 @media (max-width: 768px) {
